@@ -1,0 +1,130 @@
+body {
+    background-color: white;
+    color: #000;
+    text-align: center;
+    font-family: 'Newsreader', serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex; 
+    /*요소를 flexbox container로 만듦 -> 요소들을 flex 방식으로 배치: */
+    /*-> 내부 요소 가로 정렬, justify-content 및 align-items 속성 함께 사용하여 요소 정렬 가능능*/
+    justify-content: space-between;
+    /*flexbox container 내 양 끝 요소 배치, 요소 사이 최대한의 공간 만듦
+    able to use: flex-start(왼쪽 정렬), flex-end, center, space-between, space-around(요소 사이 동일 여백), space-evenly(동일 크기 간격)*/
+    align-items: center;
+    /*able to use: flex-start(요소들을 컨테이너의 위쪽에 정렬), flex-end(아래쪽에 정렬), center(수직 중앙 정렬), baseline(텍스트 기준선 정렬), stretch(요소들을 자동으로 늘려 컨테이너 높이에 맞춤)*/
+    padding: 10px 5%;
+    /*위아래 10px, 좌우 전체 너비 5% / (적는 순서대로) 상, 우, 하, 좌*/
+    background-color: white;
+    /*반투명은 rgba 사용*/
+    position: sticky;
+    /*스크롤할 때 요소가 일정 위치에서 고정되도록 함함*/
+    top: 0;
+    /*화면 상단에 고정 위치 지정*/
+}
+
+.logo {
+    font-size: 2vw;
+    font-family: 'Inter', sans-serif;
+    color: #426B1F;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    appearance: none;
+    padding: 10px 20px;
+    font-size: 1vw;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.just {
+    background: none;
+    border: none;
+    color: black;
+}
+
+.basket {
+    background-color: #426B1F;
+    color: white;
+    border: none;
+}
+
+.hero {
+    margin-top: 50px;
+}
+
+.hero h1 {
+    font-size: 2.5vw;
+    margin: 10px 0;
+}
+
+.button {
+    font-size: 1.2vw;
+    background-color: #426B1F;
+    color: white;
+    border: none;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /*you can use: nowrap(기본값, 모든 아이템 한 줄 배치),
+                wrap(여러 줄로 자동 줄바꿈),
+                wrap-reverse(여러 줄로 줄바꿈하지만 역순 배치치)*/
+    gap: 20px; /*요소 사이 간격격*/
+    margin-top: 50px;
+}
+
+.img-container {
+    max-width: 40%; /*최대 넓이를 부모 요소의 40%로 제한*/
+}
+
+.img-container img {
+    width: 100%; /*.img-container의 100%*/
+    height: auto; /*이미지의 가로 세로 비율 유지*/
+    border-radius: 10px;
+}
+
+/* 반응형 디자인: 화면 넓이가 (768이하일 때 스타일 변경 역할) 
+    -> 모바일이나 태블릿 화면에서 레이아웃 최적화하기 위한 코드*/
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 5vw; /*vw(뷰포트 너비): 화면의 너비 기준 %
+        : 부모 요소의 크기 기준 %*/
+    }
+
+    .button {
+        font-size: 3vw;
+    }
+
+    .images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-container {
+        max-width: 80%;
+    }
+}
